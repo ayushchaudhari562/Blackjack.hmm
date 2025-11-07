@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackjack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Blackjack</h1>
+  <p id="msg">Want to play a round?</p>
+
+  <section class="card">
+    <p class="card1">Cards:</p>
+    <p id="sumEEl">Sum:</p>
+  </section>
+
+  <div>
+    <button onclick="start()">START GAME</button>
+    <button class="nc" onclick="new_card()">NEW CARD</button>
+    <button onclick="restart()">RESTART GAME</button>
+  </div>
+
+  <p id="player_name"></p>
+
+  <p>Bet Amount: ₹<span id="bet-amount">0</span></p>
+  <div class="btnn">
+    <button onclick="bet(1000)">Bet ₹1000</button>
+    <button onclick="bet(5000)">Bet ₹5000</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
