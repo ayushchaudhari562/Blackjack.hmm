@@ -38,7 +38,7 @@ function getRandomCard() {
   const suit = suits[Math.floor(Math.random() * suits.length)];
 
   let cardValue;
-  if (value === "A") cardValue = 11;
+  if (value === "A") cardValue = 1;
   else if (["J", "Q", "K"].includes(value)) cardValue = 10;
   else cardValue = value;
 
@@ -155,3 +155,4 @@ function updatePlayer() {
 closeBtn.addEventListener("click", function() {
   popup.style.display = "none";
 });
+
