@@ -3,9 +3,6 @@ let player = {
   prize: 20000,
 };
 
-
-
-
 const cardImgs = [];
 ["S", "H", "D", "C"].forEach(suit => {
   ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"].forEach(value => {
@@ -27,6 +24,11 @@ let cardEl = document.querySelector(".card1");
 let BET = document.getElementById("bet-amount");
 let playerEL = document.getElementById("player_name");
 
+
+let popup = document.getElementById("popup");
+let popupText = document.getElementById("popupText");
+let closeBtn = document.getElementById("closeBtn");
+
 playerEL.textContent = player.Name + ": ₹" + player.prize;
 
 function getRandomCard() {
@@ -45,6 +47,11 @@ function getRandomCard() {
     value: cardValue,
     image: `https://deckofcardsapi.com/static/img/${value}${suit}.png`,
   };
+}
+
+function showPopup(text) {
+  popupText.textContent = text;
+  popup.style.display = "flex";
 }
 
 function start() {
@@ -96,9 +103,15 @@ function render_() {
     player.prize += currentBet * 2;
     updatePlayer();
     isAlive = false;
+   
+
+    showPopup("🎉 You Won! Blackjack! You earned ₹" + (currentBet * 2));
   } else {
     message = "You're out of the game!";
     isAlive = false;
+  
+
+    showPopup("😞 You Lost! You went over 21. Lost ₹" + currentBet);
   }
 
   msgEl.textContent = message;
@@ -136,5 +149,9 @@ function bet(amount) {
 }
 
 function updatePlayer() {
-  playerEL.textContent = player.Name + ": $" + player.prize;
+  playerEL.textContent = player.Name + ": ₹" + player.prize;
 }
+
+closeBtn.addEventListener("click", function() {
+  popup.style.display = "none";
+});
